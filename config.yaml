@@ -1,0 +1,47 @@
+# MSA Tools Configuration
+tools:
+  mafft:
+    version: "7.5"
+    url: "https://mafft.cbrc.jp/alignment/software/mafft-7.520-linux.tgz"
+    command: "mafft"
+  tcoffee:
+    version: "13"
+    url: "http://www.tcoffee.org/Packages/Stable/Latest/"
+    command: "t_coffee"
+  probcons:
+    version: "1.12"
+    url: "http://probcons.stanford.edu/probcons_v1_12.tar.gz"
+    command: "probcons"
+  clustalo:
+    version: "1.2.4"
+    url: "http://www.clustal.org/omega/clustalo-1.2.4-Ubuntu-x86_64"
+    command: "clustalo"
+  muscle:
+    version: "5"
+    url: "https://github.com/rcedgar/muscle/releases/download/v5.1/muscle5.1.linux_intel64"
+    command: "muscle"
+
+# Dataset Configuration
+datasets:
+  balibase:
+    version: "4.0"
+    url: "http://www.lbgi.fr/balibase/BalibaseDownload/BAliBASE_R1-5.tar.gz"
+    refs:
+      - "RV11"
+      - "RV12"
+      - "RV20"
+      - "RV30"
+      - "RV40"
+      - "RV50"
+
+# Output Configuration
+output:
+  results_dir: "results"
+  alignments_dir: "results/alignments"
+  figures_dir: "results/figures"
+  benchmark_file: "results/benchmark_results.csv"
+
+# Resource Monitoring Configuration
+monitoring:
+  memory_interval: 0.1  # seconds
+  enable_gpu_monitoring: false
