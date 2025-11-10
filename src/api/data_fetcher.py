@@ -77,10 +77,7 @@ class DataFetcher:
             print(f"Installing {tool}...")
             # Download logic here
             
-        print("[OK] Tools installed")
-        print("\nNote: T-Coffee and ProbCons require manual installation:")
-        print("  sudo apt-get install t-coffee probcons")
-        print("  Or on Windows, install via WSL or use pre-compiled binaries")
+    print("[OK] Tools installed")
     
     def verify_installation(self):
         """Check if all tools are available"""

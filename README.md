@@ -23,21 +23,51 @@ docker run -v "${PWD}:/app" -w /app msa-benchmark python3 main.py
 
 ## 🛠️ Prerequisites
 
+### Using Docker (Recommended)
 - Docker Desktop (Windows/macOS) or Docker Engine (Linux)
 - At least 4GB of available RAM
 - 2GB of free disk space
+
+### Manual Installation
+If you prefer not to use Docker, you'll need to install the following:
+
+- Python 3.8 or higher
+- pip (Python package manager)
+- MAFFT:
+  - Windows: Download from [MAFFT website](https://mafft.cbrc.jp/alignment/software/windows.html)
+  - Linux: `sudo apt-get install mafft` (Ubuntu/Debian) or `sudo yum install mafft` (CentOS/RHEL)
+  - macOS: `brew install mafft`
+- MUSCLE:
+  - Windows: Download from [MUSCLE website](https://www.drive5.com/muscle/downloads.htm)
+  - Linux: `sudo apt-get install muscle` (Ubuntu/Debian) or `sudo yum install muscle` (CentOS/RHEL)
+  - macOS: `brew install muscle`
+- Clustal Omega:
+  - Windows: Download from [Clustal Omega website](http://www.clustal.org/omega/)
+  - Linux: `sudo apt-get install clustalo` (Ubuntu/Debian) or `sudo yum install clustalo` (CentOS/RHEL)
+  - macOS: `brew install clustal-omega`
+
+Make sure all installed tools are available in your system's PATH.
 
 ## 💻 Installation
 
 1. Clone this repository:
    ```bash
-   git clone <repository-url>
-   cd bio_informatics
+   git clone https://github.com/ibrqures-uf/compass.git
+   cd compass
    ```
 
-2. Build the Docker image:
+2. Choose your installation method:
+
+   ### Using Docker (Recommended)
+   Build the Docker image:
    ```bash
    docker build -t msa-benchmark .
+   ```
+
+   ### Manual Installation
+   Install Python dependencies:
+   ```bash
+   pip install -r requirements.txt
    ```
 
 ## 🚀 Usage
