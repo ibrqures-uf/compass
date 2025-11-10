@@ -75,9 +75,8 @@ class MSARunner:
         return stats
     
     def run_all_tools(self, input_fasta, tool_name_prefix):
-        """Run all MSA tools on input"""
+        """Run all MSA tools on input and move .dnd files to dnd_files folder."""
         results = {}
-        
         tools = {
             'mafft': self.run_mafft,
             'muscle': self.run_muscle,
@@ -85,8 +84,9 @@ class MSARunner:
             'tcoffee': self.run_tcoffee,
             'probcons': self.run_probcons
         }
-        
         input_fasta = str(input_fasta)
+        dnd_dir = Path('dnd_files')
+        dnd_dir.mkdir(exist_ok=True)
         for tool, func in tools.items():
             output = self.output_dir / f"{tool_name_prefix}_{tool}.fasta"
             output = str(output)
@@ -103,5 +103,10 @@ class MSARunner:
                     'error': str(e),
                     'output': output
                 }
-        
+            # Move any .dnd files created in the current directory to dnd_files
+            for dnd_file in Path('.').glob('*.dnd'):
+                try:
+                    dnd_file.rename(dnd_dir / dnd_file.name)
+                except Exception:
+                    pass
         return results
