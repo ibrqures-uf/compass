@@ -18,4 +18,7 @@ Thumbs.db
 
 # Project specific
 *.log
-results/figures/
+dnd_files/
+results/
+data/
+*.dnd
